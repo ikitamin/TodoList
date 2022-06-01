@@ -1,0 +1,19 @@
+﻿@model TodoList.Models.TaskModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="task-list">
+    <div class="task-list-item" id="@Model.Id">
+        <div class="task-name">
+            @Html.DisplayNameFor(model => model.Name)
+        </div>
+        <div class="task-state">
+            @Html.DisplayFor(model => model.State)
+        </div>
+        <div class="task-date">
+            @Html.DisplayFor(model => model.CreatedDate)
+        </div>
+    </div>
+</div>
