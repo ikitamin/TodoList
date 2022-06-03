@@ -1,10 +1,14 @@
-﻿namespace TodoList.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TodoList.Models
 {
     public class TaskModel
     {
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
+
+        [DataType(DataType.DateTime)]
         public DateTime CreatedDate { get; set; }
         public TaskState State { get; set; }
         public TaskPriority Priority { get; set; }
@@ -17,7 +21,7 @@
         }
         public enum TaskPriority
         { 
-            Low,
+            Low = 0,
             Middle,
             High 
         }
