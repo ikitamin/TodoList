@@ -24,7 +24,7 @@ body {
 }
 
 /* custom css  FLEX BOX ??*/
-
+/*
 .task-list {
     border: 1px solid;
     border-color: green;
@@ -46,13 +46,20 @@ body {
 .task-state {
     width: 10%;
     min-width: 50px;
-    justify-content: right;
+    justify-content: center;
     text-align: right;
 }
 
 .task-date {
     width: 10%;
     min-width: 50px;
-    justify-content: right;
+    justify-content: center;
     text-align: right;
+}
+*/
+
+/* Deal with it later */
+.task-edit-delete img {
+    height: 24px;
+    width: 24px;
 }
