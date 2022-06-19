@@ -159,5 +159,32 @@ namespace TodoList.Controllers
         {
           return (_context.Task?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+        // POST: Task/Search
+        [HttpPost]
+        public async Task<IActionResult> Search(string searchString)
+        {
+            var foundTasks = from task in _context.Task
+                             select task;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                foundTasks = foundTasks.Where(x => x.Name!.Contains(searchString));
+            }
+
+            return View(await foundTasks.ToListAsync());
+        }
+
+        // IndexPartial?
+        // GET: Task
+        public IActionResult IndexPartial(TaskModel task)
+        {
+            return _context.Task != null ?
+                PartialView("_IndexPartial", task) :
+                Problem("Entity set 'TaskContext.Task'  is null.");
+        }
+        /* // GET: Task/Filter
+         [HttpGet]
+         public async Task<IActionResult> Filter()*/
     }
 }

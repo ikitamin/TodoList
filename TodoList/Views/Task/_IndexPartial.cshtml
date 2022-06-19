@@ -1,0 +1,43 @@
+﻿@model TodoList.Models.TaskModel
+
+<div class="task-list-item">
+    <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
+        <li class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+            </div>
+        </li>
+
+        <li class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent">
+            <div class="task-name">
+            @Html.DisplayFor(model => model.Name)
+        </div>
+        </li>
+
+        <li class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent">
+            <div class="d-flex flex-column justify-content-end mb-1">
+                <div class="d-flex flex-row justify-content-end">
+                    <div class="task-state me-3">
+                        @Html.DisplayFor(model => model.State)
+                    </div>
+                    <div class="task-date">
+                        @Html.DisplayFor(model => model.CreatedDate)
+                    </div>
+                </div> 
+
+                <div class="task-edit-delete d-flex flex-row justify-content-end">
+                    <div class="task-edit me-3">
+                        <a asp-action="Edit" asp-route-id="@Model?.Id">
+                            <img src="img/edit-icon.png">
+                        </a>
+                    </div>
+                    <div class="task-delete">
+                        <a asp-action="Delete" asp-route-id="@Model?.Id">
+                            <img src="img/delete-icon.jpg">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
