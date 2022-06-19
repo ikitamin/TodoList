@@ -1,4 +1,17 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿$(function () {
 
-// Write your JavaScript code.
+    $(document).on("click", ".task-update-partial", function () {
+        refreshTaskListPartial();
+    });
+
+    function refreshTaskListPartial() {
+        $.ajax({
+            method: "GET",
+            url: "/Task/IndexPartial",
+            success: function (result) {
+                $(".partial").html(result);
+            }
+        });
+        console.log("wtf");
+    }
+});
